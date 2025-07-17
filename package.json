@@ -1,0 +1,19 @@
+{
+  "name": "bus_tracker_ts",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "tsc": "bunx tsc --noEmit --watch",
+    "start": "bun --hot src/server.ts",
+    "biome": "bunx biome format --write",
+    "test": "bun --watch test"
+  },
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.1",
+    "@types/bun": "^1.2.18"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
