@@ -2,9 +2,10 @@ const PORT = 3000;
 
 console.log(`Server running on port ${PORT}`);
 
-Bun.serve({
+export const runServer = () =>
+  Bun.serve({
     port: PORT,
     routes: {
-        "/": new Response("OK")
-    }
-});
+      "/": new Response("OK"),
+    },
+  });
