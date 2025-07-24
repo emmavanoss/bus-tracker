@@ -1,9 +1,5 @@
-import { drizzle } from "drizzle-orm/bun-sql";
+import { Hono } from "hono";
 
-import { runServer } from "./server";
+export const app = new Hono<{ Variables: Variables }>();
 
-const db = drizzle(process.env.POSTGRES_URL!);
-
-console.log(process.env.POSTGRES_URL)
-
-runServer();
+app.get("/", (c) => c.text("OK"));

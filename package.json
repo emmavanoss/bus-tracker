@@ -4,16 +4,18 @@
   "type": "module",
   "scripts": {
     "tsc": "bunx tsc --noEmit --watch",
-    "start": "bun --hot src/index.ts",
+    "dev": "bun --hot src/index.ts",
     "biome": "bunx biome format --write",
     "test": "bun --watch test",
-    "generate": "bunx drizzle-kit generate",
-    "apply": "bunx drizzle-kit migrate"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "private": true,
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
     "@types/bun": "^1.2.18",
+    "@types/pg": "^8.15.4",
     "drizzle-kit": "^0.31.4"
   },
   "peerDependencies": {
@@ -21,6 +23,7 @@
   },
   "dependencies": {
     "drizzle-orm": "^0.44.3",
+    "hono": "^4.8.5",
     "pg": "^8.16.3"
   }
 }
