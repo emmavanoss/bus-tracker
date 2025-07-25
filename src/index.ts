@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 
-export const app = new Hono<{ Variables: Variables }>();
+const app = new Hono();
 
 app.get("/", (c) => c.text("OK"));
+
+export default app;
