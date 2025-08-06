@@ -6,4 +6,4 @@ const pool = new Pool({
   max: 10,
   idleTimeoutMillis: 30000,
 });
-const db = drizzle({ client: pool, casing: "snake_case" });
+export const db = drizzle({ client: pool, casing: "snake_case" });
