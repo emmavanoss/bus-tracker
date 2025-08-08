@@ -39,5 +39,19 @@ describe("Server", () => {
     expect(res.status).toBe(201);
   });
 
-  it.todo("Should return 409 if a user tries to register twice");
+  it("Should return 409 if a user tries to register twice", async () => {
+    const req = new Request("http://localhost/register", {
+      method: "POST",
+      body: JSON.stringify({
+        username: "test-user",
+        password: "test-password",
+      }),
+    });
+    const clonedReq = req.clone();
+    const res1 = await app.fetch(req);
+    expect(res1.status).toBe(201);
+
+    const res2 = await app.fetch(clonedReq as Request);
+    expect(res2.status).toBe(409);
+  });
 });
